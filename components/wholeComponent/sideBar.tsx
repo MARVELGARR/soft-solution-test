@@ -102,7 +102,7 @@ const SideBar = () => {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SubscriptionCard/>
+        {state == "expanded" &&(<SubscriptionCard/>)}
       </SidebarFooter>
     </Sidebar>
   );

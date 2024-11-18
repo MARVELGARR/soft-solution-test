@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import SideBar from "@/components/wholeComponent/sideBar";
+import HeaderComponent from "@/components/ui/header";
 
 
 const geistSans = localFont({
@@ -11,6 +12,13 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
+
+const inter = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+})
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -30,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full`}
       >
         <ThemeProvider
           attribute="class"
@@ -40,9 +48,12 @@ export default function RootLayout({
         >
           <SidebarProvider>
             <SideBar />
-            <main>
+            <main className="w-full">
               <SidebarTrigger />
-              {children}
+              <div className="w-full">
+                <HeaderComponent />
+                {children}
+              </div>
             </main>
           </SidebarProvider>
         </ThemeProvider>
