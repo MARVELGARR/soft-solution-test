@@ -3,21 +3,21 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 type PopulationCardProps ={
     name: string,
     Icon: React.FC<{className?: string}>
-    number: number
+    number: string
 }
 const PopulationCard = ({name, Icon, number}:PopulationCardProps) => {
     return (
-        <Card className="">
+        <Card className=" rounded-md h-fit shadow-xl cursor-pointer">
             <CardHeader className="">
                 <CardTitle className="">
                     <Icon className=""/>
                 </CardTitle>
-                <CardDescription>
-                    {name}
-                </CardDescription>
             </CardHeader>
-            <CardFooter>
-                {number}
+            <CardContent >
+                <p className=" text-body-grayText">{name}</p>
+            </CardContent>
+            <CardFooter className="">
+                <strong className="text-2xl">{number}</strong>
             </CardFooter>
         </Card>
     );

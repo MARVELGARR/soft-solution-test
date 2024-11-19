@@ -52,7 +52,10 @@ export default function RootLayout({
               <SidebarTrigger />
               <div className="w-full">
                 <HeaderComponent />
-                {children}
+                <div className="px-[1.2em]">
+
+                  {children}
+                </div>
               </div>
             </main>
           </SidebarProvider>

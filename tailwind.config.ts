@@ -60,7 +60,10 @@ export default {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))',
 				icon: "hls(var(--sidebar-icon))"
-  			}
+  			},
+			body: {
+				grayText: 'hsl(var(---gray-text))'
+			}
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

@@ -35,6 +35,8 @@ html, body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --chart-6: linear-gradient(333.01deg, #6E81FE -23.54%, #FFB7F5 173.81%);
+
     --radius: 0.5rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 230, 19%, 63%, 1;
@@ -45,7 +47,8 @@ html, body {
     --sidebar-accent-foreground: 0, 0%, 100%, 1;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-    --sidebar-icon: 0, 0%, 100%, 1
+    --sidebar-icon: 0, 0%, 100%, 1;
+    ---gray-text: 215, 16%, 47%, 1
   }
   .dark {
     --background: 240 10% 3.9%;
