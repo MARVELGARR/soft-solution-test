@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import SideBar from "@/components/wholeComponent/sideBar";
 import HeaderComponent from "@/components/ui/header";
+import ReduxProvider from "@/providers/redux-provider";
 
 
 const geistSans = localFont({
@@ -47,17 +48,20 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SidebarProvider>
-            <SideBar />
-            <main className="w-full">
-              <SidebarTrigger />
-              <div className="w-full">
-                <HeaderComponent />
-                <div className="px-[1.2em]">
+            <ReduxProvider>
 
-                  {children}
+              <SideBar />
+              <main className="w-full">
+                <SidebarTrigger />
+                <div className="w-full">
+                  <HeaderComponent />
+                  <div className="px-[1.2em]">
+
+                    {children}
+                  </div>
                 </div>
-              </div>
-            </main>
+              </main>
+            </ReduxProvider>
           </SidebarProvider>
         </ThemeProvider>
       </body>

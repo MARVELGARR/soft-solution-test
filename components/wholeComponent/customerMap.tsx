@@ -1,18 +1,21 @@
+import { AspectRatio } from "../ui/aspect-ratio";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Separator } from "../ui/separator";
+import MapComponent from "./te";
+
 
 
 const CustomerMap = () => {
     return (
-        <Card>
+        <Card className="h-full ">
             <CardHeader>
                 <CardTitle>
                     <strong>Customer Map</strong>
                 </CardTitle>
             </CardHeader>
             <Separator/>
-            <CardContent>
-                
+            <CardContent className="mt-[1.3rem]">
+                <MapComponent/>
             </CardContent>
         </Card>
     );
