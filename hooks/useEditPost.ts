@@ -8,7 +8,7 @@ const useEditPost = () => {
 
     const {mutateAsync, data, error} = useMutation({
         mutationKey: ["editPost"],
-        mutationFn: (data: {body: string, id: string})=> editTodo(data),
+        mutationFn: (data: {body?: string, id?: string})=> editTodo(data),
         onSuccess() {
             // Invalidate and refetch todos query
             queryClient.invalidateQueries({ queryKey: ["todos"] });

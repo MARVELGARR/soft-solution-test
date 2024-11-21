@@ -1,7 +1,7 @@
 
 type editTodoProp ={
-    body: string,
-    id: string
+    body?: string,
+    id?: string
 }
 const editTodo = async ({body, id}: editTodoProp) => {
   try {

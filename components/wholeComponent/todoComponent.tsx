@@ -15,6 +15,8 @@ import useEditPost from "@/hooks/useEditPost";
 import { RootState } from "@/redux/store";
 import { Todo } from "@prisma/client";
 import { useQueryClient } from "@tanstack/react-query";
+import { revalidatePath } from "next/cache";
+import useChecked from "@/hooks/useChecked";
 
 export const baseUrl = `localhost:3000`;
 
@@ -27,9 +29,11 @@ export default function TodoList() {
   const [filter, setFilter] = useState("all");
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editText, setEditText] = useState("");
+  const [editComplete, setComplete] = useState(false);
 
   const { mutateAsync: createTodo } = mutateTodo();
   const { mutateAsync: updateTodo } = useEditPost();
+  const {mutateAsync: checkedTodo} = useChecked()
 
   const { filteredTodos, isLoading } = useTodo();
 
@@ -51,6 +55,24 @@ export default function TodoList() {
       }
     }
   };
+
+  const handleComplete = async(id: string, checked: string | boolean) =>{
+    
+      checkedTodo({id, checked}).then(()=>{
+        toast({
+          title: "completion change",
+          description: "Your todo status  has been updated",
+          className: "bg-green-400",
+        });
+      }).catch(()=>{
+        toast({
+          title: "completion change",
+          description: "Your todo status  has been updated",
+          className: "bg-red-400",
+        });
+      })
+    
+  }
 
   // Handle deleting a todo
   const handleDeleteTodo = async (id: string) => {
@@ -140,7 +162,8 @@ export default function TodoList() {
             <li key={todo.id} className="flex items-center gap-2">
               <Checkbox
                 checked={todo.completed}
-                onCheckedChange={() => dispatch(toggleTodo(todo.id))}
+                
+                onCheckedChange={(checked) => handleComplete(todo.id, checked)}
               />
               {/* Edit Todo */}
               {editingId === todo.id ? (
