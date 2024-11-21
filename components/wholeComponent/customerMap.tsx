@@ -7,7 +7,7 @@ import MapComponent from "./te";
 
 const CustomerMap = () => {
     return (
-        <Card className="h-full ">
+        <Card className="h-full w-full ">
             <CardHeader>
                 <CardTitle>
                     <strong>Customer Map</strong>

@@ -89,7 +89,8 @@ const MenuComponent = () => {
         </ul>
         <Separator className=" -mt-11" />
       </CardHeader>
-      <CardContent>
+      {currentFilter == "All Category" ? (
+        <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           {menuOptions.slice(0, 2).map((item) => (
             <div
@@ -151,6 +152,12 @@ const MenuComponent = () => {
           ))}
         </div>
       </CardContent>
+      ): (
+        
+            <div className="h-full w-full flex items-center justify-center text-2xl font-extrabold">{"Coming soon..."}</div>
+        
+      )}
+      
     </Card>
   );
 };

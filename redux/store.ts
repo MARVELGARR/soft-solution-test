@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import filterReducer from './features/filters/filterSlice'
+import  todoReducer  from './features/filters/todoSlice'
 // ...
 
 export const store = configureStore({
   reducer: {
-    filter: filterReducer
+    filter: filterReducer,
+    todos: todoReducer
 }})
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

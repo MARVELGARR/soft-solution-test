@@ -53,7 +53,7 @@ const CustomerList = () => {
 
 
     return (
-        <Card className="w-fit">
+        <Card className="w-full md:w-fit">
             <CardHeader>
                 <CardTitle>
                     <strong>Customer List</strong>
