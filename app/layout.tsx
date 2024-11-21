@@ -7,6 +7,7 @@ import SideBar from "@/components/wholeComponent/sideBar";
 import HeaderComponent from "@/components/ui/header";
 import ReduxProvider from "@/providers/redux-provider";
 import ReactQueryProvider from "@/providers/reactQueryProider";
+import { Toaster } from "@/components/ui/toaster";
 
 
 const geistSans = localFont({
@@ -63,6 +64,7 @@ export default function RootLayout({
                       {children}
                     </div>
                   </div>
+                  <Toaster />
                 </main>
               </ReduxProvider>
             </SidebarProvider>

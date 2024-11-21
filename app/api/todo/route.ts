@@ -30,16 +30,19 @@ export async function POST(req: Request, res: Response){
 }
 
 
+
 export async function GET(req: Request) {
-  try {
-
-    const todos = await prisma.todo.findMany();
-    
-
-    return NextResponse.json({ todos }, { status: 200 });
-  } catch (error) {
-
-    console.error(error);
-    return NextResponse.json({ message: 'Something went wrong' }, { status: 500 });
+    try {
+      const todos = await prisma.todo.findMany();
+  
+      // Check if there are no todos
+      if (todos.length === 0) {
+        return NextResponse.json({ message: "No todos found", todos }, { status: 200 });
+      }
+  
+      return NextResponse.json({ todos }, { status: 200 });
+    } catch (error) {
+      return NextResponse.json({ message: "Something went wrong" }, { status: 500 });
+    }
   }
-}
+  

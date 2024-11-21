@@ -1,21 +1,24 @@
-export const GetPost = async () => {
+import { Todo } from "@prisma/client";
+
+export const GetPost = async (): Promise<Todo[]> => {
     try {
-      const res = await fetch(`/api/todo`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        },
-      });
-  
-      if (res.ok) {
-        const post = await res.json();
-        return post; // Return the post data if the request is successful
-      } else {
-        console.error("Error gettinf posts:", res.status);
-        return null; // Return null if the request failed
-      }
+        const res = await fetch(`/api/todo`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        });
+    
+        if (!res.ok) {
+            throw new Error('Failed to fetch todos');
+        }
+
+        const data = await res.json();
+        
+        // Handle potential nested response
+        return data.todos || data;
     } catch (error) {
-      console.error("Request failed:", error);
-      throw new Error("Request failed"); // Throw an error to be caught in the calling function
+        console.error("Fetch todos error:", error);
+        return []; // Return empty array instead of null
     }
 };

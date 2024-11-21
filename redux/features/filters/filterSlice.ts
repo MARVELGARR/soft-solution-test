@@ -1,36 +1,23 @@
-import type { RootState } from '@/redux/store';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+// src/redux/features/filter/filterSlice.ts
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+// Define the Enum for Filter States
 
 
-// Define a type for the slice state
-interface FilterState {
-  filterValue: string | null;  // A filter state would be a string 
-}
+// Initial state set to 'all'
+const initialState: string = "all"
 
-// Define the initial state using that type
-const initialState: FilterState = {
-  filterValue:"All Category",  // Initially, no filter is applied
-};
-
-export const filterSlice = createSlice({
+const filterSlice = createSlice({
   name: 'filter',
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    // Action to apply a filter by setting the filter value
-    setFilter: (state, action: PayloadAction<string | null>) => {
-      state.filterValue = action.payload; // Set the filter to the value in the payload 
-    },
-    // Action to clear the filter
-    clearFilter: (state) => {
-      state.filterValue = null;  // Reset the filter value to null
+    // Set the filter to the provided value from the action payload
+    setFilter: (state, action: PayloadAction<string>) => {
+      return action.payload
     },
   },
-});
+})
 
-export const { setFilter, clearFilter } = filterSlice.actions;
+export const { setFilter } = filterSlice.actions
 
-// Selector to get the current filter value from the state
-export const selectFilter = (state: RootState) => state.filter.filterValue;
-
-export default filterSlice.reducer;
+export default filterSlice.reducer

@@ -1,11 +1,22 @@
-export const createPost = async (body: any) => {
+
+import { baseUrl } from "@/components/wholeComponent/todoComponent";
+import { Todo } from "@prisma/client";
+
+export type CreateTodoProp = {
+
+  text: string, 
+  completed: boolean 
+  
+}
+
+export const createPost = async ({text, completed} : CreateTodoProp): Promise<Todo | null> => {
     try {
       const res = await fetch(`/api/todo`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify({text, completed})
       });
   
       if (res.ok) {
@@ -13,7 +24,7 @@ export const createPost = async (body: any) => {
         return post; // Return the post data if the request is successful
       } else {
         console.error("Post failed with status:", res.status);
-        return null; // Return null if the request failed
+        return null // Return null if the request failed
       }
     } catch (error) {
       console.error("Request failed:", error);
