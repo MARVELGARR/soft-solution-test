@@ -26,8 +26,8 @@ type MenuItem = {
 }
 
 const SideBar = () => {
-  const { state, isMobile, open } = useSidebar();
-  const baseUrl = process.env.BASE_URL_LOCAL
+  const { state, open } = useSidebar();
+
   const pathName = usePathname()
 
   const sideBarMenuItems = [

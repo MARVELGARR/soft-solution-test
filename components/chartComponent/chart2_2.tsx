@@ -1,5 +1,4 @@
 import {
-  Label,
   PolarGrid,
   PolarRadiusAxis,
   RadialBar,
@@ -9,9 +8,7 @@ import {
 import {
   Card,
   CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+
 } from "@/components/ui/card";
 import { ChartContainer } from "@/components/ui/chart";
 import { cn } from "@/lib/utils";

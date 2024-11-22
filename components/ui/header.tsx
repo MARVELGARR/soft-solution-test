@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Greeting from "../wholeComponent/greating";
 import Notifications from "../wholeComponent/notificatiosn";
 import UtilBar from "../wholeComponent/utilBar";

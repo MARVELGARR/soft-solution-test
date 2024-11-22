@@ -2,12 +2,9 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { DotIcon } from "lucide-react";
 
 const Action = ({ className }: { className?: string }) => {
   const ViewSvg: React.FC<{ className?: string }> = ({ className }) => {

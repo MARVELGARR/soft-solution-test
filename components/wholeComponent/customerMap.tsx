@@ -1,4 +1,4 @@
-import { AspectRatio } from "../ui/aspect-ratio";
+
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Separator } from "../ui/separator";
 import MapComponent from "./te";

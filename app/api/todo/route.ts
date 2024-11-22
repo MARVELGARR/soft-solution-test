@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { prisma } from '../../../prisma/prisma';
 
 
-export async function POST(req: Request, res: Response){
+export async function POST(req: Request){
 
     const data = await req.json()
 
@@ -24,14 +24,14 @@ export async function POST(req: Request, res: Response){
         }
     }
     catch(error){
-        return NextResponse.json({message: "something went wrong"}, {status: 500})
+        return NextResponse.json({message: "something went wrong", error}, {status: 500})
     }
 
 }
 
 
 
-export async function GET(req: Request) {
+export async function GET() {
     try {
       const todos = await prisma.todo.findMany();
   
@@ -42,7 +42,7 @@ export async function GET(req: Request) {
   
       return NextResponse.json({ todos }, { status: 200 });
     } catch (error) {
-      return NextResponse.json({ message: "Something went wrong" }, { status: 500 });
+      return NextResponse.json({ message: "Something went wrong", error }, { status: 500 });
     }
   }
   

@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./card";
 
 type PopulationCardProps ={
     name: string,

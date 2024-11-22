@@ -20,9 +20,7 @@ export default function ComingSoon() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-[#6C5DD3] p-4 text-center text-white">
       <h1 className="mb-4 text-4xl font-bold sm:text-6xl">Coming Soon</h1>
-      <p className="mb-8 max-w-md text-xl opacity-80">
-        We're working on something exciting. Stay tuned!
-      </p>
+      <p className="mb-8 max-w-md text-xl opacity-80">We're working on something exciting. Stay tuned! `&apos</p>
       <form onSubmit={handleSubmit} className="flex w-full max-w-md flex-col gap-2 sm:flex-row">
         <Input
           type="email"

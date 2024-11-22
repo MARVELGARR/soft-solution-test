@@ -145,7 +145,7 @@ const PopulationComponent = ({ className }: { className?: string }) => {
 
     return (
         <div className={cn("", className)}>
-        {populationCardIcons.map((item, idex) => {
+        {populationCardIcons.map((item) => {
             return (
             <PopulationCard
                 key={item.number}

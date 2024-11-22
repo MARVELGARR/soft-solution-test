@@ -1,6 +1,5 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, Rectangle, XAxis } from "recharts";
 
 import {
@@ -107,7 +106,7 @@ export function RevenueChartComponent() {
       <CardHeader className="w-full flex relative">
         <CardTitle className="text-xl">Revenue</CardTitle>
         <CardDescription>
-          <strong className="text-3xl font-extrabold text-black">$112,340</strong>
+          <strong className="text-3xl font-extrabold text-black">${totalVisitors}</strong>
         </CardDescription>
         <Action className={"absolute right-[3rem] top-[2rem]"} />
       </CardHeader>

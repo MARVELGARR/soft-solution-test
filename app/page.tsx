@@ -4,13 +4,14 @@ import CustomerList from "@/components/wholeComponent/customerList";
 import CustomerMap from "@/components/wholeComponent/customerMap";
 import MenuComponent from "@/components/wholeComponent/menuComponent";
 import PopulationComponent from "@/components/wholeComponent/populationComponent";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <div className="w-full flex flex-col gap-3 flex-wrap">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </head>
+            <Head>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
       {/* Population Component */}
       <PopulationComponent className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4" />
       

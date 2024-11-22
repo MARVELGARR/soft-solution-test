@@ -1,6 +1,6 @@
 'use client'
 import { X } from "lucide-react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./card";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "./card";
 import { useState } from "react";
 
 const SubscriptionCard = () => {

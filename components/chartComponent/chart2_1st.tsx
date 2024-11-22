@@ -1,5 +1,5 @@
-import { Label, PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart, ResponsiveContainer } from "recharts"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart, ResponsiveContainer } from "recharts"
+import { Card, CardContent } from "@/components/ui/card"
 import { ChartContainer } from "@/components/ui/chart"
 import { cn } from "@/lib/utils"
 
