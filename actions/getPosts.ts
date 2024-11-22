@@ -1,4 +1,4 @@
-import { Todo } from "@prisma/client";
+import { Todo } from "./createPost";
 
 export const GetPost = async (): Promise<Todo[]> => {
     try {
