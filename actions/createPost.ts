@@ -1,5 +1,4 @@
 
-import { baseUrl } from "@/components/wholeComponent/todoComponent";
 import { Todo } from "@prisma/client";
 
 export type CreateTodoProp = {
