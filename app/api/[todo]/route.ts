@@ -1,7 +1,12 @@
 import { prisma } from "@/prisma/prisma";
 import { NextResponse } from "next/server";
 
-export async function DELETE(req: Request, res: Response, { params }: { params: { todo: string } }) {
+
+type Params = {
+  params: { todo: string }
+}
+
+export async function DELETE(req: Request, res: Response, { params }: Params) {
   try {
     // Delete the todo by its id (passed in params.todo)
     const deletedTodo = await prisma.todo.delete({
