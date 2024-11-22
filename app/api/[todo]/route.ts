@@ -6,7 +6,7 @@ type Params = {
   params: { todo: string }
 }
 
-export async function DELETE(req: Request, res: Response, { params }: Params) {
+export async function DELETE(req: Request, { params }: Params) {
   try {
     // Delete the todo by its id (passed in params.todo)
     const deletedTodo = await prisma.todo.delete({
