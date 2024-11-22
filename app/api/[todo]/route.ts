@@ -24,7 +24,7 @@ export async function DELETE(req: Request, res: Response, { params }: Params) {
 }
 export async function PATCH(
   req: NextRequest,
-  { params }: { params: { todo: string } }
+  { params }: Params
 ) {
   const data = await req.json();
   const { body, checked } = data;
