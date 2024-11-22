@@ -1,4 +1,5 @@
-import { Todo } from '@prisma/client'
+
+import { Todo } from '@/actions/createPost'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 const initialState: Todo[] = []

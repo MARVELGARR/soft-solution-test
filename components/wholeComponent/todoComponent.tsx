@@ -23,12 +23,13 @@ import useTodo from "@/hooks/useTodo";
 import mutateTodo from "@/hooks/mutateTodo";
 import useEditPost from "@/hooks/useEditPost";
 
-import { Todo } from "@prisma/client";
+
 import { useQueryClient } from "@tanstack/react-query";
 
 import useChecked from "@/hooks/useChecked";
 import { setFilters } from "@/redux/features/filters/filterSlice";
 import { RootState } from "@/redux/store";
+import { Todo } from "@/actions/createPost";
 
 export const baseUrl = `localhost:3000`;
 

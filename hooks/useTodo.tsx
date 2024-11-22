@@ -11,7 +11,6 @@ const useTodo = () => {
   const { data, isLoading, error, isSuccess } = useQuery({
     queryKey: ["todos"],
     queryFn: GetPost,
-    placeholderData: todoReduxState,
   });
 
   const filteredTodos = (data || todoReduxState || []).filter((todo) => {
