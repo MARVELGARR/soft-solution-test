@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/prisma";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 
 type Params = {
@@ -23,28 +23,23 @@ export async function DELETE(req: Request, res: Response, { params }: Params) {
   }
 }
 export async function PATCH(
-  req: Request,
-  { params }: Params
+  req: NextRequest,
+  { params }: { params: { todo: string } }
 ) {
   const data = await req.json();
-  const { body, checked } = data; // We need to expect `body` and `checked`
+  const { body, checked } = data;
 
   try {
-    // Update the Todo: either its body or its completed status
     const updatedTodo = await prisma.todo.update({
       where: {
-        id: params.todo, // The todo ID passed in the URL
+        id: params.todo,
       },
       data: {
-        // If body is present, update the body
         ...(body && { body }),
-
-        // If checked is present, toggle the completed status
         ...(checked !== undefined && { completed: checked }),
       },
     });
 
-    // Return success response with updated todo
     return NextResponse.json(
       { message: "Todo updated successfully", updatedTodo },
       { status: 200 }
@@ -52,7 +47,7 @@ export async function PATCH(
   } catch (error) {
     console.error("Error updating todo:", error);
     return NextResponse.json(
-      { message: "Something went wrong", error },
+      { message: "Something went wrong", error: String(error) },
       { status: 500 }
     );
   }
