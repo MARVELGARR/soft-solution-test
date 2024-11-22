@@ -1,4 +1,4 @@
-import { Todo } from "@prisma/client";
+
 
 
 export type CreateTodoProp = {
@@ -6,6 +6,15 @@ export type CreateTodoProp = {
   text: string, 
   completed: boolean 
   
+}
+
+export type Todo = {
+  id: string;  
+  title?: string;  
+  body: string;
+  completed: boolean;  
+  createdAt: Date;  
+  updatedAt: Date;  
 }
 
 export const createPost = async ({text, completed} : CreateTodoProp): Promise<Todo | null> => {
