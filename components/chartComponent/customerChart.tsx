@@ -89,7 +89,7 @@ export function CustomerPieComponent() {
                     />
                 </PieChart>
                 </ChartContainer>
-                <div className="absolute text-cyan-700 top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg flex flex-col items-center justify-center">
+                <div className="absolute text-cyan-700 top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg flex flex-col items-center justify-center">
                 <span className="text-2xl font-bold">82.3%</span>
                 <span className="text-sm text-muted-foreground">total</span>
                 </div>

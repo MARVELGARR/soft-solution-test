@@ -43,6 +43,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full`}
       >
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -53,6 +54,7 @@ export default function RootLayout({
             
             <SidebarProvider>
               <ReduxProvider>
+                
 
                 <SideBar />
                 <main className="w-full h-full">

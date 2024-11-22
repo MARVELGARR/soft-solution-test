@@ -1,6 +1,8 @@
+import ComingSoon from "@/components/wholeComponent/commingSoon";
+
 const OrdersPage = () => {
     return (
-        <div className=""></div>
+        <ComingSoon/>
     );
 }
  

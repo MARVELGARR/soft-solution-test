@@ -1,8 +1,26 @@
 import { prisma } from "@/prisma/prisma";
 import { NextResponse } from "next/server";
 
-// Handle PATCH request for updating a Todo (either its body or completed status)
-export async function PATCH(req: Request, { params }: { params: { todo: string } }) {
+export async function DELETE(req: Request, { params }: { params: { todo: string } }) {
+  try {
+    // Delete the todo by its id (passed in params.todo)
+    const deletedTodo = await prisma.todo.delete({
+      where: {
+        id: params.todo, // The todo id passed in the URL
+      },
+    });
+
+    // If deletion is successful, return a success response
+    return NextResponse.json({ message: "Todo deleted successfully", deletedTodo }, { status: 200 });
+  } catch (error) {
+    console.error("Error deleting todo:", error);
+    return NextResponse.json({ message: "Something went wrong", error }, { status: 500 });
+  }
+}
+export async function PATCH(
+  req: Request,
+  { params }: { params: { todo: string } }
+) {
   const data = await req.json();
   const { body, checked } = data; // We need to expect `body` and `checked`
 
@@ -22,9 +40,15 @@ export async function PATCH(req: Request, { params }: { params: { todo: string }
     });
 
     // Return success response with updated todo
-    return NextResponse.json({ message: "Todo updated successfully", updatedTodo }, { status: 200 });
+    return NextResponse.json(
+      { message: "Todo updated successfully", updatedTodo },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Error updating todo:", error);
-    return NextResponse.json({ message: "Something went wrong", error }, { status: 500 });
+    return NextResponse.json(
+      { message: "Something went wrong", error },
+      { status: 500 }
+    );
   }
 }

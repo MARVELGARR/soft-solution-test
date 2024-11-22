@@ -33,7 +33,7 @@ const SideBar = () => {
   const sideBarMenuItems = [
     {name: "Dashboard", icon: DashboardSvg, link: `/`, isActive: pathName === `/` },
     {name: "Orders", icon: OrderSvg, link: `/orders`, isActive: pathName === `/orders`},
-    {name: "Analytic", icon: Analytic, link: `/analytic`, isActive: pathName === `/analytic`},
+    {name: "Analytic", icon: Analytic, link: `/analytics`, isActive: pathName === `/analytics`},
     {name: "Customer", icon: Customers, link: `/customer`, isActive: pathName === `/customer`},
     {name: "Menu", icon: MenuSvg, link: `/menu`, isActive: pathName === `/menu`},
     {name: "Todo", icon: MenuSvg, link: `/todo`, isActive: pathName === `/todo`},

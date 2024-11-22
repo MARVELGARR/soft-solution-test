@@ -1,6 +1,10 @@
-import { toast } from "@/hooks/use-toast";
-
-const checkedTodo = async ({id, checked}: {id: string, checked: string | boolean}) => {
+const checkedTodo = async ({
+  id,
+  checked,
+}: {
+  id: string;
+  checked: string | boolean;
+}) => {
   try {
     const res = await fetch(`/api/${id}`, {
       method: "PATCH",
@@ -9,9 +13,7 @@ const checkedTodo = async ({id, checked}: {id: string, checked: string | boolean
       },
       body: JSON.stringify({ checked }),
     });
-
   } catch (error) {
-
     throw new Error(" something went wrong ");
   }
 };

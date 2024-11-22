@@ -1,16 +1,15 @@
-
-type editTodoProp ={
-    body?: string,
-    id?: string
-}
-const editTodo = async ({body, id}: editTodoProp) => {
+type editTodoProp = {
+  body?: string;
+  id?: string;
+};
+const editTodo = async ({ body, id }: editTodoProp) => {
   try {
     const res = await fetch(`/api/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({body}),
+      body: JSON.stringify({ body }),
     });
     if (res.ok) {
       const post = await res.json();
