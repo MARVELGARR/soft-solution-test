@@ -2,16 +2,14 @@ import { prisma } from "@/prisma/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
 
-type Params = {
-  params: { todo: string }
-}
 
-export async function DELETE(req: Request, { params }: Params) {
+
+export async function DELETE(req: Request, { params }: { params: Promise<{ todo: string }> }) {
   try {
     // Delete the todo by its id (passed in params.todo)
     const deletedTodo = await prisma.todo.delete({
       where: {
-        id: params.todo, // The todo id passed in the URL
+        id: (await params).todo, // The todo id passed in the URL
       },
     });
 
@@ -24,7 +22,7 @@ export async function DELETE(req: Request, { params }: Params) {
 }
 export async function PATCH(
   req: NextRequest,
-  { params }: Params
+  { params }: { params: Promise<{ todo: string }> }
 ) {
   const data = await req.json();
   const { body, checked } = data;
@@ -32,7 +30,7 @@ export async function PATCH(
   try {
     const updatedTodo = await prisma.todo.update({
       where: {
-        id: params.todo,
+        id: (await params).todo,
       },
       data: {
         ...(body && { body }),
