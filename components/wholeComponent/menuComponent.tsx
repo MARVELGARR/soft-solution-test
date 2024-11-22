@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Separator } from "../ui/separator";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilter } from "@/redux/features/filters/filterSlice";
+import { setFilters } from "@/redux/features/filters/filterSlice";
 import { RootState } from "@/redux/store";
 import { AspectRatio } from "../ui/aspect-ratio";
 import Image from "next/image";
@@ -57,11 +57,11 @@ const MenuComponent = () => {
 
   const dispatch = useDispatch();
   const currentFilter = useSelector(
-    (state: RootState) => state.filter.filterValue
+    (state: RootState) => state.filter
   );
 
   const handleSelect = (selected: string) => {
-    dispatch(setFilter(selected));
+    dispatch(setFilters(selected));
   };
 
   return (
