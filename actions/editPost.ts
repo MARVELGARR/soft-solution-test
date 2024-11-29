@@ -4,7 +4,7 @@ type editTodoProp = {
 };
 const editTodo = async ({ body, id }: editTodoProp) => {
   try {
-    const res = await fetch(`${process.env.BASE_URL_LOCAL}/api/${id}`, {
+    const res = await fetch(`/api/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

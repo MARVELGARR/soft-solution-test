@@ -2,7 +2,7 @@ import { Todo } from "./createPost";
 
 export const GetPost = async (): Promise<Todo[]> => {
     try {
-        const res = await fetch(`${process.env.BASE_URL_LOCAL}/api/todo`, {
+        const res = await fetch(`/api/todo`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"

@@ -19,7 +19,7 @@ export type Todo = {
 
 export const createPost = async ({text, completed} : CreateTodoProp): Promise<Todo | null> => {
     try {
-      const res = await fetch(`${process.env.BASE_URL_LOCAL}/api/todo`, {
+      const res = await fetch(`/api/todo`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
